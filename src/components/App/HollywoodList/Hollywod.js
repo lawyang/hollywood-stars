@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class HollywoodList extends Component {
     constructor(props){
         super(props);
-        this.state = {star: {name: 'Sean Bean', known: 'Always Dies'} }
+        this.state = {star: {name: 'Sean Bean', known: 'Always Dieing'} }
     }
 
     handleChange = (propertyName) => (event) => {
@@ -14,6 +14,11 @@ class HollywoodList extends Component {
         }})
     }
 
+    logName = () => (event) => {
+        console.log(this.state.star.name);
+    }
+
+
     render(){
         return(
             <div>
@@ -22,6 +27,7 @@ class HollywoodList extends Component {
                 <input placeholder="Known For" onChange={this.handleChange('known')} />
                 <h2>Name: {this.state.star.name}</h2>
                 <h3>Known For: {this.state.star.known}</h3>
+                <button onClick={this.logName()}>Click me to console.log</button>
             </div>
         );
     }
